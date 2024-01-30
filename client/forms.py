@@ -2,6 +2,7 @@ from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth.models import User
 from django.forms.widgets import PasswordInput, TextInput
 from django import forms
+from .models import ClientData
 
 class CreateUserForm(UserCreationForm):
     class Meta:
@@ -20,3 +21,15 @@ class CreateUserForm(UserCreationForm):
 class LoginForm(AuthenticationForm):
     username = forms.CharField(widget=TextInput(attrs={'autofocus': True, 'class': 'form-control', 'placeholder': 'Enter username'}))
     password = forms.CharField(strip=False, widget=PasswordInput(attrs={'class': 'form-control', 'placeholder': 'Enter password'}))
+
+
+class AddDataForm(forms.ModelForm):
+    class Meta:
+        model = ClientData
+        fields = ['first_name','last_name','email','phone','address','city','country']
+
+
+class UpdateDataForm(forms.ModelForm):
+    class Meta:
+        model = ClientData
+        fields = ['first_name','last_name','email','phone','address','city','country']

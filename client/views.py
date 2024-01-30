@@ -60,3 +60,7 @@ def dashboard(request):
 def logout(request):
     auth.logout(request)
     return redirect('login')
+
+@login_required(login_url='login')
+def add(request):
+    return render (request,"client/create.html")

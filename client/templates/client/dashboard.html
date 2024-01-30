@@ -5,6 +5,8 @@
 
 <h1 class="text-center">Welcome to the dashboard!{{user}}</h1>
 
+<a  href="{% url 'add' %}" class="btn btn-primary text-center">Add  User Info</a>
+
 <div class="container mt-5">
     <div class="table-responsive">
     <table class="table table-hover">
@@ -35,6 +37,7 @@
          {% endfor %}
         </tbody>
       </table>
+      
     </div>
 </div>
 
