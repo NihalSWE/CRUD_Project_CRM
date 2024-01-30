@@ -1,1 +1,48 @@
+/* Apply styles to the form container */
+.form-layout {
+    border-radius: 15px;
+    width: 500px; /* Adjust the width as needed */
+    margin: auto; /* Center the form on the page */
+    padding: 10px 20px; /* Adjust the padding to reduce the overall height */
+    box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1); /* Add a subtle box shadow */
+}
 
+/* Apply styles to form fields */
+.form-control {
+    margin-bottom: 8px; /* Reduce margin between form fields */
+}
+
+/* Apply styles to form labels */
+label {
+    font-weight: bold;
+    font-size: 14px; /* Adjust font size for labels */
+}
+
+/* Apply styles to form submit button */
+.btn-primary {
+    background-color: #4CAF50; /* Green color */
+    border: none;
+    color: white;
+    padding: 8px 16px; /* Adjust padding for the button */
+    font-size: 14px; /* Adjust font size for the button */
+    border-radius: 5px;
+}
+
+/* Apply styles to form links */
+a {
+    color: #007BFF; /* Blue color */
+    text-decoration: none;
+    font-size: 14px; /* Adjust font size for links */
+}
+
+/* Change color on link hover */
+a:hover {
+    color: #0056b3;
+}
+
+
+
+.nav-item:hover a.nav-link{
+    color:rgb(178, 240, 8) !important;
+
+}

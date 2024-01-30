@@ -6,23 +6,22 @@
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
-            {% if request.user.is_authenticated %}
+            {% if user.is_authenticated %}
                 <li class="nav-item active">
-                    <a class="nav-link" href="#" style="color: #fff;">DashBoard &nbsp;</a>
+                    <a class="nav-link" href="{% url 'dashboard' %}" style="color: #fff;">DashBoard &nbsp;</a>
                 </li>
                 &nbsp;  &nbsp;   &nbsp;
                 <li class="nav-item active">
-                    <a class="nav-link" href="#" style="color: #fff;">Log Out &nbsp;</a>
+                    <a class="nav-link" href="{% url 'logout' %}" style="color: #fff;">Log Out &nbsp;</a>
                 </li>
             {% else %}
                 <li class="nav-item active">
-                    <a class="nav-link" href="/register" style="color: #fff;">Register &nbsp;<span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="{% url 'register' %}" style="color: #fff;">Register &nbsp;</a>
                 </li>
                 &nbsp;  &nbsp;   &nbsp;
                 <li class="nav-item active">
-                    <a class="nav-link" href="#" style="color: #fff;">Login &nbsp;</a>
+                    <a class="nav-link" href="{% url 'login' %}" style="color: #fff;">Login &nbsp;</a>
                 </li>
-
             {% endif %}
         </ul>
     </div>
