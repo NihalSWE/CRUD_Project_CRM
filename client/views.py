@@ -3,6 +3,7 @@ from .forms import CreateUserForm,LoginForm
 from django.contrib.auth.models import auth
 from django.contrib.auth import authenticate
 from django.contrib.auth.decorators import login_required
+from .models import ClientData
 # Create your views here.
 def home(request):
     return render(request, 'client/home.html')
@@ -47,9 +48,13 @@ def login(request):
 
 @login_required(login_url='login')
 def dashboard(request):
+    my_data = ClientData.objects.all()
+    context={'datas':my_data}
 
 
-    return  render(request,"client/dashboard.html")
+
+
+    return  render(request,"client/dashboard.html",context)
 
 
 def logout(request):
