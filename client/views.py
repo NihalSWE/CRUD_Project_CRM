@@ -1,5 +1,5 @@
 from django.shortcuts import redirect, render
-from .forms import CreateUserForm,LoginForm
+from .forms import CreateUserForm,LoginForm,AddDataForm,UpdateDataForm
 from django.contrib.auth.models import auth
 from django.contrib.auth import authenticate
 from django.contrib.auth.decorators import login_required
@@ -63,4 +63,35 @@ def logout(request):
 
 @login_required(login_url='login')
 def add(request):
-    return render (request,"client/create.html")
+    form = AddDataForm
+    if request.method=='POST':
+        form=AddDataForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('/dashboard')
+        
+    context = {'form':form}
+
+    return render (request,"client/create.html",context)
+
+
+
+@login_required(login_url='login')
+def update(request,pk):
+    data = ClientData.objects.get(id=pk)
+    form = UpdateDataForm(instance=data)
+    if request.method == 'POST':
+        form =UpdateDataForm(request.POST,instance=data)
+        if form.is_valid():
+            form.save()
+            return redirect ('/dashboard')
+    context ={'form':form}
+     
+    return render(request,'client/update.html',context)
+
+
+@login_required(login_url='login')
+def view(request,pk):
+    all_data = ClientData.objects.get(id=pk)
+    context={'data':all_data}
+    return render(request,'client/view_data.html',context)

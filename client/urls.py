@@ -8,4 +8,6 @@ urlpatterns = [
     path('dashboard',views.dashboard,name='dashboard'),
     path('logout',views.logout,name='logout'),
     path('add',views.add,name="add"),
+    path('update/<int:pk>',views.update,name='update'),
+    path('view/<int:pk>',views.view,name='view'),
 ]
