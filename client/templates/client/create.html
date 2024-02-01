@@ -5,20 +5,37 @@
 
 <div class="container bg-light shadow-md p-4 form-layout">
 
-    <h2 class="text-center mb-3">Add New Client Data</h2>
+    <h2 class="text-center mb-4">Add New Client Data</h2>
    
-    <hr>
-
     <form action="" method="POST" autocomplete="off">
         {% csrf_token %}
-        {{ form|crispy }}
 
-        <div class="text-center mt-3">
+        <div class="row">
+            <div class="col-md-6">
+                {{ form.first_name|as_crispy_field }}
+            </div>
+            <div class="col-md-6">
+                {{ form.last_name|as_crispy_field }}
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6">
+                {{ form.email|as_crispy_field }}
+            </div>
+            <div class="col-md-6">
+                {{ form.phone|as_crispy_field }}
+            </div>
+        </div>
+
+        {{ form.address|as_crispy_field }}
+        {{ form.city|as_crispy_field }}
+        {{ form.country|as_crispy_field }}
+
+        <div class="text-center mt-4">
             <button type="submit" class="btn btn-primary btn-block py-2">Add</button>
         </div>
     </form>
 </div>
-
-
 
 {% endblock %}

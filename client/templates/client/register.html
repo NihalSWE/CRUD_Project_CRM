@@ -6,14 +6,26 @@
 <div class="container bg-light shadow-md p-4 form-layout">
 
     <h2 class="text-center mb-3">Create Your Account</h2>
-    <h5 class="text-center mb-3">Start managing your clients today</h5>
+    <h5 class="text-center mb-4">Start managing your clients today</h5>
     <hr>
 
     <form action="" method="POST" autocomplete="off">
         {% csrf_token %}
-        {{ form|crispy }}
 
-        <div class="text-center mt-3">
+        <div class="form-group">
+            {{ form.username|as_crispy_field }}
+        </div>
+        <div class="form-group">
+            {{ form.email|as_crispy_field }}
+        </div>
+        <div class="form-group">
+            {{ form.password1|as_crispy_field }}
+        </div>
+        <div class="form-group">
+            {{ form.password2|as_crispy_field }}
+        </div>
+
+        <div class="text-center mt-4">
             <button type="submit" class="btn btn-primary btn-block py-2">Create Account</button>
         </div>
     </form>

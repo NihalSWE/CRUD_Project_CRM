@@ -95,3 +95,10 @@ def view(request,pk):
     all_data = ClientData.objects.get(id=pk)
     context={'data':all_data}
     return render(request,'client/view_data.html',context)
+
+
+@login_required(login_url='login')
+def delete(request,pk):
+        data = ClientData.objects.get(id=pk)
+        data.delete()
+        return redirect('dashboard')

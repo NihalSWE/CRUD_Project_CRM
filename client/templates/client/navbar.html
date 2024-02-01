@@ -1,5 +1,5 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-primary justify-content-center">
-    <a class="navbar-brand main-heading" href="{% url 'home' %}" style="font-weight: bold; font-size: 24px; color: #fff;">CRM</a>
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <a class="navbar-brand main-heading mx-4" href="{% url 'home' %}">CRM</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
@@ -7,24 +7,20 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
             {% if user.is_authenticated %}
-                <li class="nav-item active">
-                    <a class="nav-link" href="{% url 'dashboard' %}" style="color: #fff;">DashBoard &nbsp;</a>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'dashboard' %}">Dashboard</a>
                 </li>
-                &nbsp;  &nbsp;   &nbsp;
-                <li class="nav-item active">
-                    <a class="nav-link" href="{% url 'logout' %}" style="color: #fff;">Log Out &nbsp;</a>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'logout' %}">Log Out</a>
                 </li>
             {% else %}
-                <li class="nav-item active">
-                    <a class="nav-link" href="{% url 'register' %}" style="color: #fff;">Register &nbsp;</a>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'register' %}">Register</a>
                 </li>
-                &nbsp;  &nbsp;   &nbsp;
-                <li class="nav-item active">
-                    <a class="nav-link" href="{% url 'login' %}" style="color: #fff;">Login &nbsp;</a>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'login' %}">Login</a>
                 </li>
             {% endif %}
         </ul>
     </div>
 </nav>
-
-
